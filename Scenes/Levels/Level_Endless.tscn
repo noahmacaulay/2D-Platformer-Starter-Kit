@@ -1,21 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://cjanwm3sy2x37"]
+[gd_scene load_steps=15 format=3 uid="uid://crfewtulcedhm"]
 
-[ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
-[ext_resource type="PackedScene" uid="uid://crfewtulcedhm" path="res://Scenes/Levels/Level_Endless.tscn" id="2_hb2tt"]
-[ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_pay8t"]
-[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Scroll.tscn" id="3_rrh80"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Camera.tscn" id="4_nrtfx"]
-[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
-[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_wqbaa"]
-[ext_resource type="PackedScene" uid="uid://2mfd845kt0d5" path="res://Scenes/Prefabs/Boulder.tscn" id="6_qwi78"]
-[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_gwcy2"]
-[ext_resource type="PackedScene" uid="uid://c5qvetkb7csr7" path="res://Scenes/UI/user_interface.tscn" id="9_hlayi"]
-[ext_resource type="PackedScene" uid="uid://d3agsg8rcfgeq" path="res://Scenes/Prefabs/Box.tscn" id="10_gi2k4"]
-[ext_resource type="PackedScene" uid="uid://kv5pke0n5s3m" path="res://Scenes/Prefabs/troll.tscn" id="10_v7ots"]
-[ext_resource type="Texture2D" uid="uid://o0sdrhgf8bep" path="res://Assets/Textures/cartoon-summer-landscape.png" id="11_rxic2"]
+[ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_6pvkj"]
+[ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_lfxd0"]
+[ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_l51bf"]
+[ext_resource type="PackedScene" uid="uid://i1163fgypbcr" path="res://Scenes/Prefabs/Camera.tscn" id="4_hgca5"]
+[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Scroll.tscn" id="5_10des"]
+[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="6_jm865"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="7_furj3"]
+[ext_resource type="PackedScene" uid="uid://c5qvetkb7csr7" path="res://Scenes/UI/user_interface.tscn" id="8_bmf66"]
+[ext_resource type="Texture2D" uid="uid://d11n81duk73dw" path="res://Assets/Textures/dghbuun-eff6ff27-5f0c-482f-8f25-d6412bdd9ddf.png" id="9_3qh4j"]
+[ext_resource type="PackedScene" uid="uid://pmuar61gct8b" path="res://Scenes/Prefabs/troll.tscn" id="10_cnggo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
-texture = ExtResource("5_wqbaa")
+texture = ExtResource("6_jm865")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -55,7 +52,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gs0qk")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rndpx"]
-texture = ExtResource("5_wqbaa")
+texture = ExtResource("6_jm865")
 texture_region_size = Vector2i(64, 64)
 0:5/0 = 0
 0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -67,41 +64,32 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rndpx")
 
-[node name="Level_01" type="Node2D"]
+[node name="Level" type="Node2D"]
 
-[node name="LevelFinishDoor" parent="." instance=ExtResource("1_oqkjg")]
+[node name="LevelFinishDoor" parent="." instance=ExtResource("1_6pvkj")]
 z_index = 1
 position = Vector2(1304, 400)
-next_scene = ExtResource("2_hb2tt")
+next_scene = ExtResource("2_lfxd0")
 
-[node name="Player" parent="." instance=ExtResource("2_pay8t")]
+[node name="Player" parent="." instance=ExtResource("3_l51bf")]
 z_index = 1
 position = Vector2(-31, 408)
 
-[node name="Camera2D" parent="Player" instance=ExtResource("4_nrtfx")]
+[node name="Camera2D" parent="Player" instance=ExtResource("4_hgca5")]
 
 [node name="Coins" type="Node2D" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource("3_rrh80")]
+[node name="Coin" parent="Coins" instance=ExtResource("5_10des")]
 position = Vector2(576, 406)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("3_rrh80")]
+[node name="Coin2" parent="Coins" instance=ExtResource("5_10des")]
 position = Vector2(712, 353)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("3_rrh80")]
+[node name="Coin3" parent="Coins" instance=ExtResource("5_10des")]
 position = Vector2(844, 408)
 
-[node name="Scroll" parent="Coins" instance=ExtResource("3_rrh80")]
+[node name="Scroll" parent="Coins" instance=ExtResource("5_10des")]
 position = Vector2(71, 264)
-
-[node name="Boulder" parent="." instance=ExtResource("6_qwi78")]
-position = Vector2(-197, 367)
-
-[node name="Boulder2" parent="." instance=ExtResource("6_qwi78")]
-position = Vector2(-543, 352)
-
-[node name="Boulder3" parent="." instance=ExtResource("6_qwi78")]
-position = Vector2(-408, 308)
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -119,42 +107,10 @@ layer_0/tile_data = PackedInt32Array(589836, 0, 5, 589835, 0, 5, 589834, 0, 5, 5
 unique_name_in_owner = true
 position = Vector2(174, 383)
 
-[node name="TutorialText" type="Node2D" parent="."]
-
-[node name="Movement" type="Label" parent="TutorialText"]
-offset_left = 264.0
-offset_top = 336.0
-offset_right = 542.0
-offset_bottom = 420.0
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_gwcy2")
-theme_override_font_sizes/font_size = 32
-text = "A & D To Move
-Spacebar To Jump"
-
-[node name="SetNextScene" type="Label" parent="TutorialText"]
-offset_left = 808.0
-offset_top = 256.0
-offset_right = 1239.0
-offset_bottom = 382.0
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_gwcy2")
-theme_override_font_sizes/font_size = 32
-text = "Level Finish
-Set the next scene
-from \"LevelFinishDoor\" Area"
-
 [node name="GameManager" type="Node2D" parent="."]
-script = ExtResource("4_vgfkr")
+script = ExtResource("7_furj3")
 
-[node name="Box" parent="." instance=ExtResource("10_gi2k4")]
-position = Vector2(72, 354)
-
-[node name="UserInterface" parent="." instance=ExtResource("9_hlayi")]
+[node name="UserInterface" parent="." instance=ExtResource("8_bmf66")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -175,7 +131,7 @@ offset_bottom = 427.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("11_rxic2")
+texture = ExtResource("9_3qh4j")
 stretch_mode = 3
 
 [node name="ParallaxTroll" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -183,5 +139,5 @@ scale = Vector2(0.6, 0.6)
 motion_scale = Vector2(0.5, 0.5)
 motion_offset = Vector2(200, 300)
 
-[node name="Troll" parent="ParallaxBackground/ParallaxTroll" instance=ExtResource("10_v7ots")]
+[node name="Troll" parent="ParallaxBackground/ParallaxTroll" instance=ExtResource("10_cnggo")]
 position = Vector2(2.08165e-12, 500)
