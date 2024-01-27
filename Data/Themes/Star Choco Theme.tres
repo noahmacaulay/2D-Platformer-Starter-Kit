@@ -5,4 +5,5 @@
 
 [resource]
 default_font = ExtResource("1_ic0os")
+default_font_size = 20
 Panel/styles/panel = ExtResource("1_4n7ro")

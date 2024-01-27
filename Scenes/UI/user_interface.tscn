@@ -106,7 +106,9 @@ theme_override_styles/panel = ExtResource("5_ru5uf")
 [node name="JokeDisplay" type="RichTextLabel" parent="GameUI/Panel"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.270588, 0.254902, 0.235294, 1)
+theme_override_font_sizes/normal_font_size = 25
 text = "For legal reasons, this is a joke"
+scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/Panel"]
 libraries = {

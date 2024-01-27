@@ -26,6 +26,9 @@ func joke():
 	"When I got up this morning, I had hope!",
 	"Why did the chicken cross the road? Uh... I forget...",
 	"How many engineers does it take to change a lightbulb? Not too many, or they can't engin-hear",
-	"Where does France keep its armies? In its sleevies!"]
+	"Where does France keep its armies? In its sleevies!","What do you call a well-balanced horse? Stable.",
+	"What do you call an angry carrot? A steamed veggie.",
+	"What do you call a pile of cats? A meow-ntain.",
+	"Why do cows wear bells? Because their horns don’t work."]
 	var n = randi_range(0, len(jokes) - 1)
 	emit_signal("show_joke", jokes[n])

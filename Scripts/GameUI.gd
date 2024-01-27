@@ -16,4 +16,7 @@ func _process(_delta):
 
 func _on_show_joke(in_text):
 	joke_display.text = in_text
-	animation_player.play("display_joke")
+	if !animation_player.is_playing():
+		animation_player.play("display_joke")
+	elif animation_player.current_animation_position > 1.0 && animation_player.current_animation_position < 7.0:
+		animation_player.seek(1.0)
