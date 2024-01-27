@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bjb3dx2x4bocm"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_lpo2y"]
-[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_nht2m"]
+[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Scroll.tscn" id="3_nht2m"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_ndpt4"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_8107p"]
 [ext_resource type="Script" path="res://Scripts/GameUI.gd" id="6_um0jo"]
