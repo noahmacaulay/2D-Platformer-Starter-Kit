@@ -1,15 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjanwm3sy2x37"]
+[gd_scene load_steps=17 format=3 uid="uid://cjanwm3sy2x37"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_pay8t"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Scroll.tscn" id="3_rrh80"]
+[ext_resource type="PackedScene" uid="uid://i1163fgypbcr" path="res://Scenes/Prefabs/Camera.tscn" id="4_nrtfx"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_wqbaa"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_gwcy2"]
 [ext_resource type="PackedScene" uid="uid://c5qvetkb7csr7" path="res://Scenes/UI/user_interface.tscn" id="9_hlayi"]
 [ext_resource type="PackedScene" uid="uid://d3agsg8rcfgeq" path="res://Scenes/Prefabs/Box.tscn" id="10_gi2k4"]
 [ext_resource type="PackedScene" uid="uid://pmuar61gct8b" path="res://Scenes/Prefabs/troll.tscn" id="10_v7ots"]
+[ext_resource type="Texture2D" uid="uid://o0sdrhgf8bep" path="res://Assets/Textures/cartoon-summer-landscape.png" id="11_rxic2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
 texture = ExtResource("5_wqbaa")
@@ -74,6 +76,8 @@ next_scene = ExtResource("2_0ac5u")
 [node name="Player" parent="." instance=ExtResource("2_pay8t")]
 z_index = 1
 position = Vector2(-31, 408)
+
+[node name="Camera2D" parent="Player" instance=ExtResource("4_nrtfx")]
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -142,12 +146,32 @@ position = Vector2(72, 354)
 
 [node name="UserInterface" parent="." instance=ExtResource("9_hlayi")]
 
-[node name="ParallaxLayer" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxLayer"]
+[node name="ParallaxBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxBackground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.5
+offset_top = -427.0
+offset_right = 571.5
+offset_bottom = 427.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("11_rxic2")
+stretch_mode = 3
+
+[node name="ParallaxTroll" type="ParallaxLayer" parent="ParallaxBackground"]
 scale = Vector2(0.6, 0.6)
 motion_scale = Vector2(0.5, 0.5)
 motion_offset = Vector2(200, 300)
 
-[node name="Troll" parent="ParallaxLayer/ParallaxLayer" instance=ExtResource("10_v7ots")]
+[node name="Troll" parent="ParallaxBackground/ParallaxTroll" instance=ExtResource("10_v7ots")]
 position = Vector2(2.08165e-12, 500)

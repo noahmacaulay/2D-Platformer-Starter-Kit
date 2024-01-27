@@ -65,7 +65,7 @@ func jump():
 # Handle Player Animations
 func player_animations():
 	particle_trails.emitting = false
-	
+
 	if is_on_floor():
 		if abs(velocity.x) > 0:
 			particle_trails.emitting = true

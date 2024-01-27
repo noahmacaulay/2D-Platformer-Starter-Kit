@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjb3dx2x4bocm"]
+[gd_scene load_steps=13 format=3 uid="uid://bjb3dx2x4bocm"]
 
+[ext_resource type="PackedScene" uid="uid://i1163fgypbcr" path="res://Scenes/Prefabs/Camera.tscn" id="2_hljnf"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_lpo2y"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Scroll.tscn" id="3_nht2m"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_ndpt4"]
@@ -66,6 +67,8 @@ sources/0 = SubResource("TileSetAtlasSource_rndpx")
 [node name="Player" parent="." instance=ExtResource("2_lpo2y")]
 z_index = 1
 position = Vector2(150, 318)
+
+[node name="Camera2D" parent="Player" instance=ExtResource("2_hljnf")]
 
 [node name="Coins" type="Node2D" parent="."]
 
