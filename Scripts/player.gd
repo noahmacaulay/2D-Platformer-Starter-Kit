@@ -112,7 +112,7 @@ func _on_collision_body_entered(_body):
 		death_tween()
 		
 		
-func _input(event):
+func _input(_event):
 	if Input.is_key_label_pressed(KEY_R):
 		get_tree().reload_current_scene()
 	

@@ -2,6 +2,8 @@
 
 extends Node2D
 
+signal shakecam(trauma)
+
 var score : int = 0
 
 # Adds 1 to score variable
@@ -11,3 +13,6 @@ func add_score():
 # Loads next level
 func load_next_level(next_scene : PackedScene):
 	get_tree().change_scene_to_packed(next_scene)
+
+func shake_camera(trauma):
+	emit_signal('shakecam', trauma)
