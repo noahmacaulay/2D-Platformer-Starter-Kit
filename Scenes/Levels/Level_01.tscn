@@ -73,7 +73,7 @@ next_scene = ExtResource("2_0ac5u")
 
 [node name="Player" parent="." instance=ExtResource("2_pay8t")]
 z_index = 1
-position = Vector2(150, 318)
+position = Vector2(-31, 408)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -134,6 +134,9 @@ from \"LevelFinishDoor\" Area"
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("4_vgfkr")
 
+[node name="Box" parent="." instance=ExtResource("10_gi2k4")]
+position = Vector2(72, 354)
+
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
 [node name="GameUI" type="Control" parent="UserInterface"]
@@ -142,9 +145,10 @@ anchor_left = -0.802
 anchor_top = 0.072
 anchor_right = 1.31
 anchor_bottom = 1.0
-offset_left = 948.904
-offset_top = -46.656
-offset_right = -357.12
+offset_left = 1131.9
+offset_top = -86.656
+offset_right = -174.12
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_66mfc")
@@ -178,6 +182,3 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("8_gwcy2")
 theme_override_font_sizes/font_size = 32
 text = "x 3"
-
-[node name="Box" parent="." instance=ExtResource("10_gi2k4")]
-position = Vector2(-122, 350)

@@ -89,11 +89,7 @@ func death_tween():
 	tween.tween_property(player_sprite, "scale", Vector2.ZERO, 0.15)
 	tween.parallel().tween_property(player_sprite, "position", Vector2.ZERO, 0.15)
 	await tween.finished
-	global_position = spawn_point.global_position
-	await get_tree().create_timer(0.3).timeout
-	movement_enabled = true
-	AudioManager.respawn_sfx.play()
-	respawn_tween()
+	get_tree().reload_current_scene()
 
 func respawn_tween():
 	var tween = create_tween()
@@ -114,3 +110,10 @@ func _on_collision_body_entered(_body):
 		AudioManager.death_sfx.play()
 		death_particles.emitting = true
 		death_tween()
+		
+		
+func _input(event):
+	if Input.is_key_label_pressed(KEY_R):
+		get_tree().reload_current_scene()
+	
+	
