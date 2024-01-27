@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://2mfd845kt0d5"]
+
+[ext_resource type="Texture2D" uid="uid://b32dc6jy5rvac" path="res://Assets/boulder.png" id="1_d8ukn"]
+
+[node name="Boulder" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.62939e-06, 1.90735e-06)
+scale = Vector2(0.435811, 0.435811)
+texture = ExtResource("1_d8ukn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(55, 2, -6, -54, -46, -28, -64, 13, -42, 50, 22, 50)

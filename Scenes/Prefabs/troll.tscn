@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://pmuar61gct8b"]
+[gd_scene load_steps=5 format=3 uid="uid://kv5pke0n5s3m"]
 
 [ext_resource type="Texture2D" uid="uid://d18la5fbibpd7" path="res://Assets/Textures/Troll_3.png" id="1_5abmq"]
 [ext_resource type="Script" path="res://Scripts/Troll.gd" id="2_1g35y"]

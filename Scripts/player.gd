@@ -24,17 +24,17 @@ var movement_enabled : bool = true
 
 func _process(_delta):
 	# Calling functions
-	movement()
+	movement(_delta)
 	player_animations()
 	flip_player()
 	
 # --------- CUSTOM FUNCTIONS ---------- #
 
 # <-- Player Movement Code -->
-func movement():
+func movement(delta):
 	# Gravity
 	if !is_on_floor():
-		velocity.y += gravity
+		velocity.y += delta * gravity * 80.0
 	elif is_on_floor():
 		jump_count = max_jump_count
 	
@@ -45,7 +45,15 @@ func movement():
 	if movement_enabled:
 		inputAxis = Input.get_axis("Left", "Right")
 	velocity = Vector2(inputAxis * move_speed, velocity.y)
-	move_and_slide()
+	var collision = move_and_collide(delta * velocity)
+	if collision:
+		var collider = collision.get_collider()
+		if collider is RigidBody2D:
+			collider.apply_central_impulse(0.1 * velocity)	
+		else:
+			move_and_slide()
+	else:
+		move_and_slide()
 
 # Handles jumping functionality (double jump or single jump, can be toggled from inspector)
 func handle_jumping():
