@@ -8,42 +8,32 @@
 
 [node name="GameUI" type="Control" parent="."]
 layout_mode = 3
-anchor_left = -0.802
-anchor_top = 0.072
-anchor_right = 1.31
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1131.9
-offset_top = -86.656
-offset_right = -174.12
-offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5i1np")
 
-[node name="Score" type="Control" parent="GameUI"]
+[node name="Score" type="HBoxContainer" parent="GameUI"]
 unique_name_in_owner = true
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 108.0
+offset_bottom = 60.0
+theme_override_constants/separation = 15
 
 [node name="ScoreTexture" type="TextureRect" parent="GameUI/Score"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 96.0
-offset_bottom = 96.0
+layout_mode = 2
 texture = ExtResource("2_57k74")
-expand_mode = 4
+expand_mode = 2
 stretch_mode = 5
 
 [node name="ScoreLabel" type="Label" parent="GameUI/Score"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 104.0
-offset_top = 42.0
-offset_right = 148.0
-offset_bottom = 84.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
