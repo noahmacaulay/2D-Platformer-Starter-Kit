@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjanwm3sy2x37"]
+[gd_scene load_steps=14 format=3 uid="uid://cjanwm3sy2x37"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Scroll.tscn" id="3_rrh80"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_wqbaa"]
-[ext_resource type="Script" path="res://Scripts/GameUI.gd" id="6_66mfc"]
-[ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="7_j7jun"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_gwcy2"]
+[ext_resource type="PackedScene" uid="uid://c5qvetkb7csr7" path="res://Scenes/UI/user_interface.tscn" id="9_hlayi"]
 [ext_resource type="PackedScene" uid="uid://d3agsg8rcfgeq" path="res://Scenes/Prefabs/Box.tscn" id="10_gi2k4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
@@ -137,48 +136,4 @@ script = ExtResource("4_vgfkr")
 [node name="Box" parent="." instance=ExtResource("10_gi2k4")]
 position = Vector2(72, 354)
 
-[node name="UserInterface" type="CanvasLayer" parent="."]
-
-[node name="GameUI" type="Control" parent="UserInterface"]
-layout_mode = 3
-anchor_left = -0.802
-anchor_top = 0.072
-anchor_right = 1.31
-anchor_bottom = 1.0
-offset_left = 1131.9
-offset_top = -86.656
-offset_right = -174.12
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("6_66mfc")
-
-[node name="Score" type="Control" parent="UserInterface/GameUI"]
-unique_name_in_owner = true
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 116.0
-offset_bottom = 116.0
-texture = ExtResource("7_j7jun")
-stretch_mode = 4
-
-[node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 104.0
-offset_top = 42.0
-offset_right = 148.0
-offset_bottom = 84.0
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_gwcy2")
-theme_override_font_sizes/font_size = 32
-text = "x 3"
+[node name="UserInterface" parent="." instance=ExtResource("9_hlayi")]
