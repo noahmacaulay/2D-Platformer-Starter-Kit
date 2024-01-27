@@ -25,7 +25,6 @@ func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		AudioManager.coin_pickup_sfx.play()
 		GameManager.add_score()
-		GameManager.shake_camera(1.0)
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector2.ZERO, 0.1)
 		await tween.finished
