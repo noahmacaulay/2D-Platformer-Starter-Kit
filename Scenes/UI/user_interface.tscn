@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5qvetkb7csr7"]
 
 [ext_resource type="Script" path="res://Scripts/GameUI.gd" id="1_5i1np"]
-[ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="2_wcg3m"]
+[ext_resource type="Texture2D" uid="uid://dc651mbx0suo0" path="res://Assets/Textures/scroll.png" id="2_57k74"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="3_0knlg"]
 
 [node name="UserInterface" type="CanvasLayer"]
@@ -31,10 +31,11 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 116.0
-offset_bottom = 116.0
-texture = ExtResource("2_wcg3m")
-stretch_mode = 4
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("2_57k74")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="ScoreLabel" type="Label" parent="GameUI/Score"]
 unique_name_in_owner = true

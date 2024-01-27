@@ -86,6 +86,9 @@ position = Vector2(712, 353)
 [node name="Coin3" parent="Coins" instance=ExtResource("3_rrh80")]
 position = Vector2(844, 408)
 
+[node name="Scroll" parent="Coins" instance=ExtResource("3_rrh80")]
+position = Vector2(71, 264)
+
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Ground" type="TileMap" parent="Level" groups=["Ground"]]
@@ -142,8 +145,9 @@ position = Vector2(72, 354)
 [node name="ParallaxLayer" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxLayer"]
+scale = Vector2(0.6, 0.6)
 motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(200, 300)
 
 [node name="Troll" parent="ParallaxLayer/ParallaxLayer" instance=ExtResource("10_v7ots")]
 position = Vector2(2.08165e-12, 500)
-scale = Vector2(0.8, 0.8)
