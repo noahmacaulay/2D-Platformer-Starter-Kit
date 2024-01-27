@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dp6w3yr7m7moq"]
+
+[ext_resource type="StyleBox" uid="uid://dwntqghf8da10" path="res://Data/Themes/new_style_box_texture.tres" id="1_4n7ro"]
+[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="1_ic0os"]
+
+[resource]
+default_font = ExtResource("1_ic0os")
+Panel/styles/panel = ExtResource("1_4n7ro")
