@@ -1,8 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://2mfd845kt0d5"]
+[gd_scene load_steps=5 format=3 uid="uid://2mfd845kt0d5"]
 
+[ext_resource type="Script" path="res://Scripts/Boulder.gd" id="1_bwxcm"]
 [ext_resource type="Texture2D" uid="uid://b32dc6jy5rvac" path="res://Assets/boulder.png" id="1_d8ukn"]
 
+[sub_resource type="Animation" id="Animation_iru8y"]
+resource_name = "fade out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.54902), Color(1, 1, 1, 1), Color(1, 1, 1, 0.54902), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sf54s"]
+_data = {
+"fade out": SubResource("Animation_iru8y")
+}
+
 [node name="Boulder" type="RigidBody2D"]
+script = ExtResource("1_bwxcm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7.62939e-06, 1.90735e-06)
@@ -11,3 +48,15 @@ texture = ExtResource("1_d8ukn")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(55, 2, -6, -54, -46, -28, -64, 13, -42, 50, 22, 50)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 35.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sf54s")
+}
+speed_scale = 1.4
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
