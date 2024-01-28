@@ -28,8 +28,8 @@ func generate_platforms(starting_pos : Vector2):
 	locations_x.shuffle()
 	locations_y.shuffle()
 	locations_y.pop_back()
-	var scroll_i = [randi_range(0, len(locations_y))]
-	scroll_i.append(scroll_i[0]+randi_range(1, len(locations_y)) % len(locations_y))
+	var scroll_i = [randi_range(0, len(locations_y) - 1)]
+	scroll_i.append((scroll_i[0]+randi_range(1, len(locations_y) - 1)) % len(locations_y))
 	for i in range(len(locations_y)):
 		var new_plat : Node2D = plat_scene.instantiate()
 		add_child(new_plat)
@@ -55,4 +55,4 @@ func readjust():
 func move_down():
 	destination.y += 448
 	if roundi(destination.y) % 896 == 0:
-		generate_platforms(Vector2(-480, destination.y - 544))
+		generate_platforms(Vector2(-480, -destination.y - 1440))
