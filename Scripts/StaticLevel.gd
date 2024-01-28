@@ -5,6 +5,7 @@ var boulder_tscn = preload("res://Scenes/Prefabs/Boulder.tscn")
 
 func _ready():
 	GameManager.connect('troll_laugh', self.make_boulders)
+	GameManager.reset_score()
 
 func make_boulders():
 	rock_particles.emitting = true

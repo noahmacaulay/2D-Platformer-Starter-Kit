@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://crfewtulcedhm"]
+[gd_scene load_steps=16 format=3 uid="uid://crfewtulcedhm"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_l51bf"]
 [ext_resource type="PackedScene" uid="uid://i1163fgypbcr" path="res://Scenes/Prefabs/Camera.tscn" id="4_hgca5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/DynamicLevel.gd" id="6_7pep8"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="6_jm865"]
 [ext_resource type="TileSet" uid="uid://1byhsp7c8bin" path="res://Data/TileSets/Platformer.tres" id="6_uhret"]
+[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="7_daiji"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="7_furj3"]
 [ext_resource type="PackedScene" uid="uid://c5qvetkb7csr7" path="res://Scenes/UI/user_interface.tscn" id="8_bmf66"]
 [ext_resource type="Texture2D" uid="uid://d11n81duk73dw" path="res://Assets/Textures/dghbuun-eff6ff27-5f0c-482f-8f25-d6412bdd9ddf.png" id="9_3qh4j"]
@@ -79,6 +80,19 @@ damping_max = 1.0
 scale_amount_min = 15.0
 scale_amount_max = 30.0
 scale_amount_curve = SubResource("Curve_b2gkf")
+
+[node name="Movement" type="Label" parent="StaticLevel"]
+z_index = 2
+offset_left = -146.0
+offset_top = 670.0
+offset_right = 132.0
+offset_bottom = 754.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_daiji")
+theme_override_font_sizes/font_size = 32
+text = "R to Restart"
 
 [node name="DynamicLevel" type="Node2D" parent="."]
 script = ExtResource("6_7pep8")

@@ -14,6 +14,8 @@ func add_score():
 	emit_signal('troll_laugh')
 	joke()
 
+func reset_score():
+	score = 0
 # Loads next level
 func load_next_level(next_scene : PackedScene):
 	get_tree().change_scene_to_packed(next_scene)
@@ -25,7 +27,6 @@ func joke():
 	var jokes = ["Have you heard the one about the sheep? You have?",
 	"When I got up this morning, I had hope!",
 	"Why did the chicken cross the road? Uh... I forget...",
-	"How many engineers does it take to change a lightbulb? Not too many, or they can't engin-hear",
 	"Where does France keep its armies? In its sleevies!","What do you call a well-balanced horse? Stable.",
 	"What do you call an angry carrot? A steamed veggie.",
 	"What do you call a pile of cats? A meow-ntain.",
