@@ -19,6 +19,7 @@ var movement_enabled : bool = true
 @onready var spawn_point = %SpawnPoint
 @onready var particle_trails = $ParticleTrails
 @onready var death_particles = $DeathParticles
+@onready var on_the_floor = false
 
 # --------- BUILT-IN FUNCTIONS ---------- #
 
@@ -27,7 +28,7 @@ func _process(_delta):
 	movement(_delta)
 	player_animations()
 	flip_player()
-	
+
 # --------- CUSTOM FUNCTIONS ---------- #
 
 # <-- Player Movement Code -->
@@ -49,9 +50,10 @@ func movement(delta):
 	if collision:
 		var collider = collision.get_collider()
 		if collider is RigidBody2D:
-			collider.apply_central_impulse(0.1 * velocity)	
+			collider.apply_central_impulse(0.1 * velocity)
 		else:
 			move_and_slide()
+		velocity = velocity.slide(collision.get_normal())
 	else:
 		move_and_slide()
 
