@@ -12,8 +12,8 @@ point_count = 3
 offsets = PackedFloat32Array(0.625, 1)
 colors = PackedColorArray(0.914063, 0.734375, 0, 1, 1, 1, 1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qosm"]
-size = Vector2(40, 44)
+[sub_resource type="CircleShape2D" id="CircleShape2D_is28u"]
+radius = 45.0
 
 [node name="Scroll" type="Area2D"]
 script = ExtResource("1_hh4vd")
@@ -38,6 +38,6 @@ scale_amount_curve = SubResource("Curve_yh7uo")
 color_ramp = SubResource("Gradient_kkhmu")
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7qosm")
+shape = SubResource("CircleShape2D_is28u")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
