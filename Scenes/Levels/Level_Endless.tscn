@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://crfewtulcedhm"]
+[gd_scene load_steps=15 format=3 uid="uid://crfewtulcedhm"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_l51bf"]
 [ext_resource type="PackedScene" uid="uid://i1163fgypbcr" path="res://Scenes/Prefabs/Camera.tscn" id="4_hgca5"]
@@ -24,6 +24,10 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rndpx")
+
+[sub_resource type="Curve" id="Curve_b2gkf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.246032, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Level" type="Node2D"]
 
@@ -58,6 +62,24 @@ layer_0/tile_data = PackedInt32Array(655373, 196608, 1, 655372, 196608, 1, 45876
 unique_name_in_owner = true
 position = Vector2(66, 309)
 
+[node name="RockParticles" type="CPUParticles2D" parent="StaticLevel"]
+modulate = Color(0.701961, 0.427451, 0.337255, 1)
+position = Vector2(-1000, -700)
+emitting = false
+amount = 30
+lifetime = 8.0
+one_shot = true
+speed_scale = 1.5
+lifetime_randomness = 0.4
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 30)
+direction = Vector2(0, 0)
+damping_min = 1.0
+damping_max = 1.0
+scale_amount_min = 15.0
+scale_amount_max = 30.0
+scale_amount_curve = SubResource("Curve_b2gkf")
+
 [node name="DynamicLevel" type="Node2D" parent="."]
 script = ExtResource("6_7pep8")
 
@@ -72,6 +94,7 @@ script = ExtResource("7_furj3")
 [node name="UserInterface" parent="." instance=ExtResource("8_bmf66")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxBackground" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.05, 0.05)
