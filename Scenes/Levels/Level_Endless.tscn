@@ -38,7 +38,7 @@ limit_right = 800
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("5_10des")]
-position = Vector2(318, 353)
+position = Vector2(340, 411)
 
 [node name="StaticLevel" type="Node2D" parent="."]
 script = ExtResource("4_nubt7")
@@ -73,7 +73,7 @@ script = ExtResource("7_furj3")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.2)
+motion_scale = Vector2(0.05, 0.05)
 motion_offset = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxBackground"]
@@ -93,10 +93,8 @@ texture = ExtResource("9_3qh4j")
 stretch_mode = 3
 
 [node name="ParallaxTroll" type="ParallaxLayer" parent="ParallaxBackground"]
-scale = Vector2(0.6, 0.6)
-motion_scale = Vector2(0.4, 0.4)
-motion_offset = Vector2(200, 200)
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(400, 400)
 
 [node name="Troll" parent="ParallaxBackground/ParallaxTroll" instance=ExtResource("10_cnggo")]
-position = Vector2(2.08165e-12, 400)
-scale = Vector2(1.3, 1.3)
+position = Vector2(2.08165e-12, 500)
