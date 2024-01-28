@@ -55,11 +55,10 @@ func readjust():
 	destination = Vector2.ZERO
 
 func move_down():
-	if timer == null:
-		timer = Timer.new()
-	elif timer.time_left:
+	if timer != null:
 		move_down_execute()
 		return
+	timer = Timer.new()
 	add_child(timer)
 	timer.connect("timeout", self.move_down_execute)
 	timer.start(3.0)
