@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://kv5pke0n5s3m"]
+[gd_scene load_steps=7 format=3 uid="uid://kv5pke0n5s3m"]
 
 [ext_resource type="Texture2D" uid="uid://d18la5fbibpd7" path="res://Assets/Textures/Troll_3.png" id="1_5abmq"]
 [ext_resource type="Script" path="res://Scripts/Troll.gd" id="2_1g35y"]
+[ext_resource type="AudioStream" uid="uid://brw2kdegwqok6" path="res://Assets/Sound/FX/troll_laugh_grunt.wav" id="3_h5d6n"]
+[ext_resource type="AudioStream" uid="uid://c2sb2hsos04x8" path="res://Assets/Sound/FX/troll_laugh_grunt_higher.wav" id="4_kbnlu"]
 
 [sub_resource type="Animation" id="Animation_dusr2"]
 resource_name = "laugh"
@@ -37,11 +39,11 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 1.5, 2.5, 3.5, 4.5, 6),
+"times": PackedFloat32Array(0.5, 1.6, 2.5, 3.5, 4.5, 6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
-"method": &"call_shake"
+"method": &"call_shake_first"
 }, {
 "args": [],
 "method": &"call_shake"
@@ -66,8 +68,6 @@ _data = {
 }
 
 [node name="Troll" type="Sprite2D"]
-rotation = -0.10472
-scale = Vector2(1, 1.06)
 texture = ExtResource("1_5abmq")
 script = ExtResource("2_1g35y")
 
@@ -76,3 +76,9 @@ libraries = {
 "": SubResource("AnimationLibrary_a8l2b")
 }
 speed_scale = 1.5
+
+[node name="LaughPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h5d6n")
+
+[node name="LowerLaughPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kbnlu")
