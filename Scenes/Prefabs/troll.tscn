@@ -77,8 +77,8 @@ libraries = {
 }
 speed_scale = 1.5
 
-[node name="LaughPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="LaughPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_h5d6n")
 
-[node name="LowerLaughPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="LowerLaughPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_kbnlu")
