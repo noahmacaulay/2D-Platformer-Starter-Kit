@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b61ilc0nyv6dt"]
+[gd_scene load_steps=4 format=3 uid="uid://b61ilc0nyv6dt"]
 
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="1_l82nj"]
+[ext_resource type="Script" path="res://Scenes/Prefabs/Platform.gd" id="1_nnir7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou6p3"]
 size = Vector2(192, 37)
 
 [node name="Platform" type="StaticBody2D" groups=["Ground"]]
+script = ExtResource("1_nnir7")
 
 [node name="CollisionPolygon" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13.5)
