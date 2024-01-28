@@ -3,12 +3,10 @@ extends Area2D
 # You can change these to your likings
 @export var amplitude := 4
 @export var frequency := 5
+@onready var sprite_2d = $Sprite2D
 
 var time_passed = 0
-var initial_position := Vector2.ZERO
 
-func _ready():
-	initial_position = position
 
 func _process(delta):
 	coin_hover(delta) # Call the coin_hover function
@@ -16,9 +14,7 @@ func _process(delta):
 # Coin Hover Animation
 func coin_hover(delta):
 	time_passed += delta
-	
-	var new_y = initial_position.y + amplitude * sin(frequency * time_passed)
-	position.y = new_y
+	sprite_2d.position.y = amplitude * sin(frequency * time_passed)
 
 # Coin collected
 func _on_body_entered(body):
