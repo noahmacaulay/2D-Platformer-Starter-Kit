@@ -1,11 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://b61ilc0nyv6dt"]
+[gd_scene load_steps=3 format=3 uid="uid://b61ilc0nyv6dt"]
 
-[ext_resource type="Texture2D" uid="uid://cjpqe1qnwwye6" path="res://Assets/Textures/platform.png" id="1_10ila"]
+[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="1_l82nj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou6p3"]
+size = Vector2(192, 37)
 
 [node name="Platform" type="StaticBody2D" groups=["Ground"]]
 
-[node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(104, -35, -104, -35, -104, -3, -83, 22, 83, 22, 104, -3)
+[node name="CollisionPolygon" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_ou6p3")
+one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_10ila")
+texture = ExtResource("1_l82nj")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 192, 64, 64)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-64, 2.08165e-12)
+texture = ExtResource("1_l82nj")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 192, 64, 64)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(64, 2.08165e-12)
+texture = ExtResource("1_l82nj")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 192, 64, 64)
