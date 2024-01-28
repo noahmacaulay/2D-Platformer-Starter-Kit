@@ -30,7 +30,10 @@ var jokes = ["Where does France keep its armies? In its sleevies!",
 "What do you call a pile of cats? A meow-ntain.",
 "Why do cows wear bells? Because their horns don’t work.",
 "How do bees brush their hair? With honeycombs",
-"What do you call a nose with no body? Nobody nose"]
+"What do you call a nose with no body? Nobody nose",
+"What do you call a can opener that doesn't work? A can't opener.",
+"What do clouds wear beneath their pants? Thunderwear.",
+"When's the best time to call your dentist? Tooth-hurty."]
 
 var score : int = 0
 
