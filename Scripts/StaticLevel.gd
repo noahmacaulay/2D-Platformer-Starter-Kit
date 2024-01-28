@@ -2,6 +2,7 @@ extends Node2D
 
 var boulder_tscn = preload("res://Scenes/Prefabs/Boulder.tscn")
 @onready var rock_particles : CPUParticles2D = $RockParticles
+@onready var moving_trails = $MovingTrails
 
 func _ready():
 	GameManager.connect('troll_laugh', self.make_boulders)
@@ -9,6 +10,7 @@ func _ready():
 
 func make_boulders():
 	rock_particles.emitting = true
+	moving_trails.emitting = true
 	for i in range(3):
 		var new_b = boulder_tscn.instantiate()
 		add_child(new_b)

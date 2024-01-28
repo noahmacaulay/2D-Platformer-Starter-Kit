@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://crfewtulcedhm"]
+[gd_scene load_steps=19 format=3 uid="uid://crfewtulcedhm"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_l51bf"]
 [ext_resource type="PackedScene" uid="uid://i1163fgypbcr" path="res://Scenes/Prefabs/Camera.tscn" id="4_hgca5"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="7_furj3"]
 [ext_resource type="PackedScene" uid="uid://c5qvetkb7csr7" path="res://Scenes/UI/user_interface.tscn" id="8_bmf66"]
 [ext_resource type="Texture2D" uid="uid://d11n81duk73dw" path="res://Assets/Textures/dghbuun-eff6ff27-5f0c-482f-8f25-d6412bdd9ddf.png" id="9_3qh4j"]
+[ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="10_0jt8l"]
 [ext_resource type="PackedScene" uid="uid://kv5pke0n5s3m" path="res://Scenes/Prefabs/troll.tscn" id="10_cnggo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rndpx"]
@@ -30,7 +31,44 @@ sources/0 = SubResource("TileSetAtlasSource_rndpx")
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.246032, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="Curve" id="Curve_dl115"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.246032, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_m25gi"]
+offsets = PackedFloat32Array(0.25, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
 [node name="Level" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.05)
+motion_offset = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxBackground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.5
+offset_top = -427.0
+offset_right = 571.5
+offset_bottom = 427.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("9_3qh4j")
+stretch_mode = 3
+
+[node name="ParallaxTroll" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(400, 400)
+
+[node name="Troll" parent="ParallaxBackground/ParallaxTroll" instance=ExtResource("10_cnggo")]
+position = Vector2(100, 500)
 
 [node name="Player" parent="." instance=ExtResource("3_l51bf")]
 z_index = 1
@@ -39,6 +77,9 @@ position = Vector2(-31, 408)
 [node name="Camera2D" parent="Player" instance=ExtResource("4_hgca5")]
 limit_left = -800
 limit_right = 800
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("7_furj3")
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -94,6 +135,27 @@ theme_override_fonts/font = ExtResource("7_daiji")
 theme_override_font_sizes/font_size = 32
 text = "R to Restart"
 
+[node name="MovingTrails" type="CPUParticles2D" parent="StaticLevel"]
+z_index = 2
+position = Vector2(1, 640)
+emitting = false
+amount = 80
+lifetime = 0.4
+speed_scale = 0.8
+texture = ExtResource("10_0jt8l")
+emission_shape = 3
+emission_rect_extents = Vector2(588, 1)
+direction = Vector2(2.08165e-12, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+damping_min = 1.0
+damping_max = 1.0
+scale_amount_min = 0.2
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_dl115")
+color_ramp = SubResource("Gradient_m25gi")
+
 [node name="DynamicLevel" type="Node2D" parent="."]
 script = ExtResource("6_7pep8")
 
@@ -102,36 +164,4 @@ tile_set = ExtResource("6_uhret")
 format = 2
 layer_0/tile_data = PackedInt32Array(458752, 0, 3, 458753, 0, 3, 458757, 0, 3, 458760, 0, 3, 524287, 0, 3, 524286, 0, 3, 524285, 0, 3, 524284, 0, 3, 524283, 0, 3, 524281, 0, 3, 524282, 0, 3, 524280, 0, 3, 458748, 131072, 5, 458750, 131072, 5, 458746, 131072, 5, 393220, 131072, 5, 458744, 131072, 5, 524279, 0, 3, 458756, 0, 3)
 
-[node name="GameManager" type="Node2D" parent="."]
-script = ExtResource("7_furj3")
-
 [node name="UserInterface" parent="." instance=ExtResource("8_bmf66")]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxBackground" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.05, 0.05)
-motion_offset = Vector2(2.08165e-12, 2.08165e-12)
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxBackground"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -571.5
-offset_top = -427.0
-offset_right = 571.5
-offset_bottom = 427.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-texture = ExtResource("9_3qh4j")
-stretch_mode = 3
-
-[node name="ParallaxTroll" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.2)
-motion_offset = Vector2(400, 400)
-
-[node name="Troll" parent="ParallaxBackground/ParallaxTroll" instance=ExtResource("10_cnggo")]
-position = Vector2(100, 500)
