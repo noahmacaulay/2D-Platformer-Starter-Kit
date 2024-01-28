@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://w7m6tehvvy3g"]
+[gd_scene load_steps=14 format=3 uid="uid://w7m6tehvvy3g"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_qt7d6"]
 [ext_resource type="Texture2D" uid="uid://cbss87b7xk5lc" path="res://Assets/Spritesheet/platformerPack_character.png" id="2_q0cxm"]
 [ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="3_8vxmb"]
+[ext_resource type="AudioStream" uid="uid://dene8gf2412xu" path="res://Assets/Sound/FX/jump.wav" id="4_t51h8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57bci"]
 atlas = ExtResource("2_q0cxm")
@@ -68,7 +69,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 floor_max_angle = 1.48353
 script = ExtResource("1_qt7d6")
-gravity = 25.0
 double_jump = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -143,5 +143,9 @@ scale_amount_min = 15.0
 scale_amount_max = 30.0
 scale_amount_curve = SubResource("Curve_m2jh0")
 color_ramp = SubResource("Gradient_3gc37")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t51h8")
+volume_db = -9.905
 
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

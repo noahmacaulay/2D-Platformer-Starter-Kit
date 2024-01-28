@@ -20,6 +20,7 @@ var movement_enabled : bool = true
 @onready var particle_trails = $ParticleTrails
 @onready var death_particles = $DeathParticles
 @onready var on_the_floor = false
+@onready var jump_player = $JumpSound
 
 # --------- BUILT-IN FUNCTIONS ---------- #
 
@@ -62,8 +63,10 @@ func handle_jumping():
 	if Input.is_action_just_pressed("Jump") and movement_enabled:
 		if is_on_floor() and !double_jump:
 			jump()
+			jump_player.play()
 		elif double_jump and jump_count > 0:
 			jump()
+			jump_player.play()
 			jump_count -= 1
 
 # Player jump
