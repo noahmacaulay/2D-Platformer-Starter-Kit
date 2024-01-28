@@ -10,6 +10,7 @@ var moveDuration = 2
 var destination: Vector2 = Vector2.ZERO
 @export var speed = 50
 var num_vertical_platforms = 7
+var timer : Timer = null
 
 func _ready():
 	generate_platforms(Vector2(-480, -544))
@@ -44,15 +45,30 @@ func generate_platforms(starting_pos : Vector2):
 
 func readjust():
 	var nodes = get_children()
-	for n : Node2D in nodes:
-		n.position += position
-		if n.position.y > 895:
-			remove_child(n)
-			n.queue_free()
+	for n in nodes:
+		if n is Node2D:
+			n.position += position
+			if n.position.y > 895:
+				remove_child(n)
+				n.queue_free()
 	position = Vector2.ZERO
 	destination = Vector2.ZERO
 
 func move_down():
+	if timer == null:
+		timer = Timer.new()
+	elif timer.time_left:
+		move_down_execute()
+		return
+	add_child(timer)
+	timer.connect("timeout", self.move_down_execute)
+	timer.start(3.0)
+
+func move_down_execute():
+	if timer && !timer.time_left:
+		remove_child(timer)
+		timer.queue_free()
+		timer = null
 	destination.y += 448
 	if roundi(destination.y) % 896 == 0:
 		generate_platforms(Vector2(-480, -destination.y - 1440))

@@ -96,13 +96,14 @@ func flip_player():
 		player_sprite.flip_h = false
 
 # Tween Animations
-func death_tween():
+func death_tween(restart : bool = true):
 	movement_enabled = false
 	var tween = create_tween()
 	tween.tween_property(player_sprite, "scale", Vector2.ZERO, 0.15)
 	tween.parallel().tween_property(player_sprite, "position", Vector2.ZERO, 0.15)
-	await tween.finished
-	get_tree().reload_current_scene()
+	if restart:
+		await tween.finished
+		get_tree().reload_current_scene()
 
 func respawn_tween():
 	var tween = create_tween()
