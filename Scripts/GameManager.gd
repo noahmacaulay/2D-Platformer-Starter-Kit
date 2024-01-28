@@ -24,8 +24,7 @@ func shake_camera(trauma):
 	emit_signal('shakecam', trauma)
 
 func joke():
-	var jokes = ["Have you heard the one about the sheep? You have?",
-	"Where does France keep its armies? In its sleevies!",
+	var jokes = ["Where does France keep its armies? In its sleevies!",
 	"What do you call a well-balanced horse? Stable.",
 	"How does a bird break into a bird feeder? With a crowbar.",
 	"What kind of tree fits in your hand? A palm tree.",
@@ -33,8 +32,33 @@ func joke():
 	"What is a monster’s favorite dessert? I scream.",
 	"How do we know that the ocean is friendly? It waves!",
 	"Why was the computer cold? It had a virus.",
+	"What do you call a drugstore for cats? A-paw-thecary!",
+	"Why don't fish go to work? Because they're still in school!",
+	"Why doesn't Indiana Jones like coding? He's afraid of pythons!",
+	"What do you call a vampire who codes? Stackula",
+	"What did the ocean say to the beach? Nothing, it just waved",
+	"How does the moon cut his hair? Eclipse it",
+	"Where do fruits go on vacation? Pear-is",
+	"Why did the corn-cob get lost? He was in a maize",
+	"Where do boats go when they're sick? To the dock!",
+	"How do you get a squirrel to like you? Act like a nut",
+	"Why don't eggs tell jokes? They'd crack each other up",
+	"I heard a joke about boxing, but there was no punch line",
 	"What do you call an angry carrot? A steamed veggie.",
 	"What do you call a pile of cats? A meow-ntain.",
-	"Why do cows wear bells? Because their horns don’t work."]
-	var n = randi_range(0, len(jokes) - 1)
-	emit_signal("show_joke", jokes[n])
+	"Why do cows wear bells? Because their horns don’t work.",
+	"How do bees brush their hair? With honeycombs",
+	"What do you call a nose with no body? Nobody nose"]
+
+	
+var unselected_joke_indices = range(len(jokes))
+
+func joke():
+	var idx = 0
+	if len(unselected_joke_indices) != 0:
+		var k = randi_range(0, len(unselected_joke_indices) - 1)
+		idx =  unselected_joke_indices[k]
+		unselected_joke_indices.remove_at(k)
+	else:
+		idx = randi_range(0, len(jokes) - 1)
+	emit_signal("show_joke", jokes[idx])
