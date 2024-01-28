@@ -8,7 +8,7 @@ var time = 0
 var timeDirection = 1
 var moveDuration = 2
 var destination: Vector2 = Vector2.ZERO
-@export var speed = 40
+@export var speed = 50
 var num_vertical_platforms = 7
 
 func _ready():
