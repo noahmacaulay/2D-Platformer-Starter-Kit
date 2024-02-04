@@ -13,5 +13,5 @@ func make_boulders():
 	moving_trails.emitting = true
 	for i in range(3):
 		var new_b = boulder_tscn.instantiate()
-		add_child(new_b)
+		call_deferred('add_child', new_b)
 		new_b.position = Vector2(randf_range(-416, 416), -1450)

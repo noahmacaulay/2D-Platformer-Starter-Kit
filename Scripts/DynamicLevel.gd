@@ -33,9 +33,9 @@ func generate_platforms(starting_pos : Vector2):
 	scroll_i.append((scroll_i[0]+randi_range(1, len(locations_y) - 1)) % len(locations_y))
 	for i in range(len(locations_y)):
 		var new_plat : Node2D = plat_scene.instantiate()
-		add_child(new_plat)
+		call_deferred('add_child',new_plat)
 		var pos : Vector2 = starting_pos
-		pos.x += locations_x[i%len(locations_x)] * 192
+		pos.x += 126 + locations_x[i%len(locations_x)] * 150
 		pos.y += locations_y[i] * 128
 		new_plat.position = pos
 		if i in scroll_i:
